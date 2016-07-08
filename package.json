@@ -4,18 +4,21 @@
   "description": "Voice activated SMS and Googling service",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist/*",
-    "build": "copyfiles -f ./src/index.html ./dist & copyfiles -f ./src/style/* ./dist/style & browserify ./src/index.js -o ./dist/bundle.js",
-    "serve": "watchify ./src/index.js -o ./dist/bundle.js & live-server ./dist",
-    "serve:css": "live-server ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "clean": "rimraf dist/*",
+  "build": "copyfiles -f ./src/index.html ./dist & node-sass ./src/style/index.scss ./dist/bundle.css --importer node_modules/node-sass-import & jade ./src/templates --out ./dist/templates & browserify ./src/index.js -o ./dist/bundle.js",
+  "serve": "watchify ./src/index.js -o ./dist/bundle.js & node-sass -w ./src/style/index.scss ./dist/bundle.css --importer node_modules/node-sass-import & live-server ./dist",
+  "test": "mocha; exit 0"
   },
   "author": "Matthew Webb <matthewowebb@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.0.1",
+    "chai": "^3.5.0",
     "copyfiles": "^1.0.0",
+    "mocha": "^2.5.3",
     "rimraf": "^2.5.3",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "watchify": "^3.7.0"
   },
   "dependencies": {
