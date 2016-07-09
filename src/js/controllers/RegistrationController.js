@@ -8,9 +8,11 @@ function RegistrationController(UserService, $state) {
   ];
 
   this.phone = {
-    cc: null,
+    cc: this.countryCodes[0].value,
     number: null
   };
+
+  this.error = null;
 
   this.submit = function (phone) {
     try {

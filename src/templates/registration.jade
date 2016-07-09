@@ -1,21 +1,29 @@
-label(for="input-cc") Phone Country
-select(
-  id="input-cc",
-  ng-model="Registration.phone.cc",
-  ng-options="item.value as item.label for item in Registration.countryCodes"
-)
+.Alert.danger(ng-show="Registration.error") {{Registration.error}}
 
-label(for="input-cc") Phone number
-input(
-  type="tel",
-  id="input-tel",
-  ng-model="Registration.phone.number",
-  minlength="4",
-  maxlength="15"
-  pattern="[0-9]+"
+form(
+  name="form",
+  ng-submit="Registration.submit(Registration.phone)"
 )
+  .form-row
+    label(for="input-cc") Phone Country
+    select(
+      id="input-cc",
+      ng-model="Registration.phone.cc",
+      ng-options="item.value as item.label for item in Registration.countryCodes"
+    )
 
-button(
-  class="Button big primary pull-right",
-  ng-click="Registration.submit(Registration.phone)"
-) Submit
+  .form-row
+    label(for="input-cc") Phone number
+    input(
+      type="tel",
+      id="input-tel",
+      ng-model="Registration.phone.number",
+      minlength="4",
+      maxlength="15"
+      pattern="[0-9]+"
+    )
+
+  button(
+    class="Button big primary pull-right",
+    ng-disabled="form.$pristine || form.$invalid || form.$pending || form.$submitted"
+  ) Submit
