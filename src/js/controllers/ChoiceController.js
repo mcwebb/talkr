@@ -1,19 +1,7 @@
 function ChoiceController($scope) {
-  this.isListening = false;
-  this.isError = false;
-  this.state = 0;
+  this.state = 'stopped';
 
-  $scope.$watch(
-    function () {
-      if (this.isListening) return 'listening';
-      else if (this.isError) return 'error';
-      else return 'disabled';
-    }.bind(this),
-    function (state) {
-      this.state = state;
-    }.bind(this)
-  );
-
+  // TODO: refactor into RecognitionService
   var grammars = new webkitSpeechGrammarList();
   grammars.addFromString('#JSGF V1.0; grammar choices; public <choice> = search | message', 1);
 
@@ -24,13 +12,13 @@ function ChoiceController($scope) {
   recognition.maxAlternatives = 0;
 
   recognition.onaudiostart = function () {
-    this.isListening = true;
+    this.state = 'listening';
     $scope.$apply();
   }.bind(this);
 
   recognition.onspeechend = function() {
     recognition.stop();
-    this.isListening = false;
+    this.state = 'processing';
     $scope.$apply();
   }.bind(this);
 
@@ -38,14 +26,13 @@ function ChoiceController($scope) {
     console.log(event.results[0][0].transcript);
     console.log('Confidence: ' + event.results[0][0].confidence);
 
-    this.isListening = false;
+    this.state = 'stopped';
     this.selection = event.results[0][0].transcript;
     $scope.$apply();
   }.bind(this);
 
   recognition.onerror = recognition.onnomatch = function (event) {
-    this.isListening = false;
-    this.isError = true;
+    this.state = 'error';
     $scope.$apply();
   }.bind(this);
 

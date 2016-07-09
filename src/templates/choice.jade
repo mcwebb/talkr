@@ -6,7 +6,7 @@
   ) &ldquo;Search&rdquo;
 
   .Cues-helper(
-    ng-class="{active: Choice.isListening, error: Choice.isError}"
+    ng-class="{active: Choice.state == 'listening', pending: Choice.state == 'processing', error: Choice.state == 'error'}"
     ng-bind="Choice.state"
   ) Disabled
 
