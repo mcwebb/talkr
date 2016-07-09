@@ -1,0 +1,115 @@
+@import "variables";
+
+@mixin Button_style($bg, $fg) {
+  background-color: $bg;
+  border-color: darken($bg, 8%);
+  color: $fg;
+  text-shadow: 0 0 1px rgba(darken($bg, 29%), 0.5);
+
+  &:hover,
+  &:focus {
+    color: $fg;
+    background-color: lighten($bg, 8%);
+    border-color: darken($bg, 2%);
+  }
+
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: $bg;
+    border-color: darken($bg, 8%);
+  }
+}
+
+.Button {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  padding: 1.1em 1.8em;
+  border: 1px solid rgba($color-dark, 0.5);
+  border-radius: $radius-sm;
+  line-height: 1em;
+  background: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.7em;
+  color: rgba($color-dark, 0.8);
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    border-color: $color-dark;
+    background-color: $color-light;
+    outline: 0;
+    color: $color-dark;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    filter: saturate(45%);
+    cursor: default;
+  }
+
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: transparent;
+    border-color: rgba($color-dark, 0.5);
+    color: rgba($color-dark, 0.8);
+  }
+
+  &.inverted {
+    color: $color-light;
+    border-color: $color-light;
+    background: rgba($color-dark, 0.3);
+    text-shadow: 0 0 1px rgba($color-dark, 0.5);
+
+    &:hover,
+    &:focus {
+      background: rgba($color-dark, 0.5);
+    }
+  }
+
+  &.primary {
+    @include Button_style($color-primary, white);
+  }
+
+  &.success {
+    @include Button_style($color-success, white);
+  }
+
+  &.danger {
+    @include Button_style($color-danger, white);
+  }
+
+  &.facebook {
+    @include Button_style(#4461a3, white);
+  }
+
+  &.big {
+    font-size: 0.9em;
+  }
+
+  &.small {
+    padding: 0.8em 1.6em 0.72em;
+  }
+
+  &.block {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+
+  > .fa:first-child {
+    margin-right: 0.35em;
+  }
+
+  > .fa:last-child {
+    margin-left: 0.35em;
+  }
+}
+
+.Button:not(.block) + .Button,
+.Button + .Button:not(.block) {
+  margin-left: 1em;
+}

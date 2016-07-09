@@ -1,0 +1,156 @@
+@import "variables";
+
+body {
+  font-family: $fonts-standard;
+  font-size: 16px;
+  line-height: 1.4;
+  color: $color-dark;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fonts-accent;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin: 0.4em 0 0.5em;
+  line-height: 1.20;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.6em;
+  line-height: 1.30;
+}
+
+h4 {
+  font-size: 1.45em;
+  line-height: 1.35;
+}
+
+h5 {
+  font-size: 1.3em;
+  line-height: 1.50;
+}
+
+h6 {
+  font-size: 1.1em;
+  line-height: 1.60;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+.intro-text {
+  font-family: $fonts-accent;
+  max-width: 40%;
+}
+
+.accent {
+  color: $color-primary;
+}
+
+.small {
+  font-size: 0.7em;
+}
+
+.big {
+  font-size: 3em;
+}
+
+.huge {
+  font-size: 8em;
+}
+
+.hero-text {
+  line-height: 1.1;
+  vertical-align: middle;
+  font-size: 4em;
+  font-size: 4vw;
+  font-weight: 300;
+}
+
+.subhero-text {
+  line-height: 1.1;
+  vertical-align: super;
+  font-size: 2em;
+  font-weight: 300;
+  color: $color-mid;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+dl {
+  margin: 0.5em 0 0.5em;
+
+  &:first-child {
+    margin-top: 0.2em;
+  }
+}
+
+dl:before,
+dl:after {
+  content: " ";
+  display: table;
+}
+
+dl:after {
+  clear: both;
+}
+
+dt,
+dd {
+  display: block;
+  float: left;
+  margin: 0.1em 0 0.1em;
+}
+
+dt {
+  font-weight: 300;
+  min-width: 70px;
+}
+
+dd + dt {
+  clear: left;
+}
+
+dd {
+  margin-left: 5%;
+}
+
+a {
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: darken($color-primary, 5%);
+  text-decoration: none;
+  transition: 0.15s color ease;
+
+  &:hover {
+    border-bottom-color: $color-secondary;
+    color: $color-secondary;
+  }
+
+  &:focus {
+    color: $color-tertiary;
+  }
+}

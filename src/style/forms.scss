@@ -1,0 +1,146 @@
+@import "variables";
+
+form {
+  margin-bottom: 2.5em;
+}
+
+// Removes awkward default styles on some inputs for iOS
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  appearance: none;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75em 1em;
+  background-color: rgba($color-mid, 0.7);
+  border: 2px solid transparent;
+  border-radius: $radius-sm;
+  box-shadow: none;
+  font-size: 16px;
+  color: $color-dark;
+
+  &:focus {
+    border-color: $color-primary;
+    outline: 0;
+  }
+
+  &.ng-touched.ng-invalid {
+    background-color: rgba($color-danger, 0.2);
+  }
+}
+
+textarea {
+  height: auto;
+  min-height: 4em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+label,
+legend {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+label.required:after {
+  color: $color-secondary;
+  content: " *";
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-weight: normal;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 0.8em;
+}
+
+.form-row {
+  @include clearfix;
+  margin-bottom: 0.9em;
+
+  input,
+  textarea,
+  select,
+  fieldset {
+    margin-bottom: 0;
+
+    & + .helptext {
+      margin: 3px 3px 0;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+
+  // addons are only supported before inputs
+  // not after, because of limitations of css selectors
+  > .addon {
+    padding: 0.75em 1em;
+    background-color: rgba($color-mid, 0.9);
+    color: $color-primary;
+    border: 2px solid transparent;
+    border-top-left-radius: $radius-sm;
+    border-bottom-left-radius: $radius-sm;
+  }
+
+  > input,
+  > select {
+    margin: 0 7px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  > .addon + input,
+  > .addon + select {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.helptext {
+  line-height: 1.2;
+  font-size: 0.8em;
+  font-style: italic;
+  color: $color-mid;
+}
