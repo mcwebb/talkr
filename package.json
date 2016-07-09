@@ -27,6 +27,7 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-ui-router": "^0.3.1",
+    "validator": "^5.4.0",
     "yesdevnull-bootstrap-grids": "^3.3.5"
   }
 }

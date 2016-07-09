@@ -3,10 +3,13 @@ var app = require('angular').module('talkr', [
   require('angular-ui-router')
 ]);
 
-app.config(require('./js/config.js'));
-app.run(require('./js/run.js'));
+app.config(require('./js/config'));
+app.run(require('./js/run'));
 
-var app = angular.module('talkr', []);
+app.service('UserService', require('./js/services/UserService'));
 
-app.config(config);
-app.run(run);
+app.controller({
+  'RegistrationController': require('./js/controllers/RegistrationController')
+});
+
+module.exports = app;
