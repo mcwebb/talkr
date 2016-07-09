@@ -24,4 +24,5 @@ function RegistrationController(UserService, $state) {
   };
 }
 
+
 module.exports = RegistrationController;

@@ -56,8 +56,8 @@ describe('RegistrationController', function () {
     it('should transition to "app.choice" when successful', function () {
       var result = controller.submit(testArgs.good);
 
-      // expect(result).to.be.ok;
-      expect(stub_$state.go).to.have.been.calledWith('app.choice');
+      expect(result).to.be.ok;
+      expect(stub_$state.go).to.have.been.calledWith('choice');
     });
 
   });

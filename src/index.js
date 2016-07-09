@@ -9,7 +9,8 @@ app.run(require('./js/run'));
 app.service('UserService', require('./js/services/UserService'));
 
 app.controller({
-  'RegistrationController': require('./js/controllers/RegistrationController')
+  'RegistrationController': require('./js/controllers/RegistrationController'),
+  'ChoiceController': require('./js/controllers/ChoiceController')
 });
 
 module.exports = app;

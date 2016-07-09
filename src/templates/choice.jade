@@ -1,0 +1,15 @@
+.Alert.info Enable your microphone and speak one of the options below
+
+.Cues
+  .Cues-item(
+    ng-class="{success: Choice.selection == 'search'}"
+  ) &ldquo;Search&rdquo;
+
+  .Cues-helper(
+    ng-class="{active: Choice.isListening, error: Choice.isError}"
+    ng-bind="Choice.state"
+  ) Disabled
+
+  .Cues-item(
+    ng-class="{success: Choice.selection == 'message'}"
+  ) &ldquo;Message&rdquo;

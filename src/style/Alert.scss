@@ -1,0 +1,28 @@
+@import "variables";
+
+@mixin Alert_style($bg) {
+  background: rgba($bg, 0.1);
+  color: $bg;
+  border-radius: $radius-sm;
+}
+
+.Alert {
+  font-size: 0.9em;
+  padding: 0.8em 1.5em;
+
+  &.info {
+    @include Alert_style($color-info);
+  }
+
+  &.success {
+    @include Alert_style($color-success);
+  }
+
+  &.warning {
+    @include Alert_style($color-warning);
+  }
+
+  &.danger {
+    @include Alert_style($color-danger);
+  }
+}

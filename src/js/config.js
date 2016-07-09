@@ -8,6 +8,12 @@ function config($stateProvider, $urlRouterProvider) {
       controller: 'RegistrationController',
       controllerAs: 'Registration'
     })
+    .state('choice', {
+      url: '/choice',
+      templateUrl: 'templates/choice.html',
+      controller: 'ChoiceController',
+      controllerAs: 'Choice'
+    })
   ;
 }
 
