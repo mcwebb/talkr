@@ -22,6 +22,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "angular": "^1.5.7"
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1"
   }
 }

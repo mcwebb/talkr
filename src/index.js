@@ -1,8 +1,10 @@
 'use strict';
+var app = require('angular').module('talkr', [
+  require('angular-ui-router')
+]);
 
-var angular = require('angular');
-var config = require('./js/config.js');
-var run = require('./js/run.js');
+app.config(require('./js/config.js'));
+app.run(require('./js/run.js'));
 
 var app = angular.module('talkr', []);
 
